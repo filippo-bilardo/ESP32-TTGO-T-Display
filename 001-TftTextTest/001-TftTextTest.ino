@@ -248,14 +248,14 @@ void TftTextTest4(void) {
 }
 /**
  * invertDisplay(bool i) 
- * invert the display colours i=1 invert, i=0 normal
+ * invert the display colours i=0 invert, i=1 normal
  */
 void TftTextTest5(void) {
   Serial.println("#5 - invert the display colours"); 
   // Binary inversion of colours
   tft.setRotation(0);
   tft.setCursor(0, 0, 2);
-  tft.setTextSize(1);
+  tft.setTextSize(0);
   tft.fillScreen(TFT_BLACK); 
   
   tft.invertDisplay(1); 
@@ -274,8 +274,9 @@ void TftTextTest5a(void) {
   // Binary inversion of colours
   tft.fillScreen(TFT_BLACK); 
   tft.setCursor(0, 0, 2);
-  tft.invertDisplay(0); 
+  tft.invertDisplay(1); 
   tft.setTextColor(TFT_WHITE, TFT_BLACK);
+  
   tft.println("Invert ON\n");
   tft.println("White text");
   tft.setTextColor(TFT_RED, TFT_BLACK);
