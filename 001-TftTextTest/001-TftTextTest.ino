@@ -255,10 +255,10 @@ void TftTextTest5(void) {
   // Binary inversion of colours
   tft.setRotation(0);
   tft.setCursor(0, 0, 2);
-  tft.setTextSize(0);
+  tft.setTextSize(2);
   tft.fillScreen(TFT_BLACK); 
   
-  tft.invertDisplay(1); 
+  tft.invertDisplay(0); 
   tft.setTextColor(TFT_WHITE, TFT_BLACK);
   tft.println("Invert ON\n");
   tft.println("White text");
@@ -274,10 +274,10 @@ void TftTextTest5a(void) {
   // Binary inversion of colours
   tft.fillScreen(TFT_BLACK); 
   tft.setCursor(0, 0, 2);
-  tft.invertDisplay(1); 
-  tft.setTextColor(TFT_WHITE, TFT_BLACK);
   
-  tft.println("Invert ON\n");
+  tft.invertDisplay(1);   
+  tft.setTextColor(TFT_WHITE, TFT_BLACK);
+  tft.println("Invert OFF\n");
   tft.println("White text");
   tft.setTextColor(TFT_RED, TFT_BLACK);
   tft.println("Red text");
