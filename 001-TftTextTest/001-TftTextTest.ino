@@ -56,6 +56,7 @@ void waitBtnSxClick() {
  *  TFT_GOLD, TFT_SILVER, TFT_SKYBLUE, TFT_VIOLET
  */
 void TftTextTest1(void) {
+  Serial.println("#1 - Clear the screen to defined background colour"); 
   tft.fillScreen(TFT_NAVY); delay(300);
   tft.fillScreen(TFT_PURPLE); delay(300);
   tft.fillScreen(TFT_CYAN); delay(300);
@@ -77,6 +78,7 @@ void TftTextTest1(void) {
   tft.println("Gold text");
   tft.setTextColor(TFT_OLIVE);
   tft.println("Olive text");
+  waitBtnSxClick(); 
 }
 /** 
  *  setRotation(uint8_t m)
@@ -84,29 +86,34 @@ void TftTextTest1(void) {
  *  Set rotation to 1,3=horizontally, 0,2=vertically
  */
 void TftTextTest2(void) {
+  Serial.println("#2 - rotate the screen orientation m = 0-3"); 
   tft.fillScreen(TFT_BLACK);    //Clear the screen with the color TFT_BLACK
   tft.setCursor(0,0,4);         //Set "cursor" at(x,y) and select font 
   tft.setTextColor(TFT_GREEN, TFT_BLACK);
   tft.setRotation(0);           //Set screen rotation to vertically
   tft.println("setRotation(0)");
+  waitBtnSxClick(); 
 }
 void TftTextTest2a(void) {
   tft.fillScreen(TFT_BLACK);    //Clear the screen with the color TFT_BLACK
   tft.setCursor(0,0,4);         //Set "cursor" at(x,y) and select font 
   tft.setRotation(1);           //Set screen rotation to vertically
   tft.println("setRotation(1)");
+  waitBtnSxClick(); 
 }
 void TftTextTest2b(void) {
   tft.fillScreen(TFT_BLACK);    //Clear the screen with the color TFT_BLACK
   tft.setCursor(0,0,4);         //Set "cursor" at(x,y) and select font 
   tft.setRotation(2);           //Set screen rotation to vertically
   tft.println("setRotation(2)");
+  waitBtnSxClick(); 
 }
 void TftTextTest2c(void) {
   tft.fillScreen(TFT_BLACK);    //Clear the screen with the color TFT_BLACK
   tft.setCursor(0,0,4);         //Set "cursor" at(x,y) and select font 
   tft.setRotation(3);           //Set screen rotation to vertically
   tft.println("setRotation(3)");
+  waitBtnSxClick(); 
 }
 /** 
  *  setTextFont(uint8_t f) 
@@ -119,6 +126,7 @@ void TftTextTest2c(void) {
  *  Define if text should wrap at end of line
  */
 void TftTextTest3(void) {
+  Serial.println("#3 - setTextFont, setTextSize, setTextWrap"); 
   tft.setRotation(0);         //Set screen rotation to vertically
   tft.fillScreen(TFT_BLACK);  //Clear the screen with the color TFT_WHITE
   tft.setTextColor(TFT_WHITE, TFT_BLACK); // Set the font colour to be TFT_WHITE with a TFT_BLACK background
@@ -132,6 +140,7 @@ void TftTextTest3(void) {
   tft.setTextSize(5); tft.println("-555-");
   tft.setTextSize(6); tft.println("-66-");
   tft.setTextSize(7); tft.println("-77-");
+  waitBtnSxClick(); 
 }
 void TftTextTest3a(void) {
   tft.setRotation(0);         //Set screen rotation to vertically
@@ -145,6 +154,7 @@ void TftTextTest3a(void) {
   tft.setTextSize(3); tft.println("-1234-");
   tft.setTextSize(4); tft.println("-44-");
   tft.setTextSize(5); tft.println("-5-");
+  waitBtnSxClick(); 
 }
 void TftTextTest3b(void) {
   tft.setRotation(0);         //Set screen rotation to vertically
@@ -157,6 +167,7 @@ void TftTextTest3b(void) {
   tft.setTextSize(2); tft.println("-1234-");
   tft.setTextSize(3); tft.println("-12-");
   tft.setTextSize(4); tft.println("-4-");
+  waitBtnSxClick(); 
 }
 void TftTextTest3c(void) {
   tft.setRotation(0);         //Set screen rotation to vertically
@@ -168,6 +179,7 @@ void TftTextTest3c(void) {
   tft.setTextSize(1); tft.println("-1234-");
   tft.setTextSize(2); tft.println("-22");
   tft.setTextSize(3); tft.println("-3-");
+  waitBtnSxClick(); 
 }
 void TftTextTest3d(void) {
   tft.setRotation(0);         //Set screen rotation to vertically
@@ -184,11 +196,24 @@ void TftTextTest3d(void) {
   tft.setTextFont(6); tft.println("6666 TextFont"); //Solo numeri
   tft.setTextFont(7); tft.println("7777"); //Solo numeri
   tft.setTextFont(8); tft.println("888"); //Solo numeri
+  waitBtnSxClick(); 
 }
 /**
  * setTextDatum(uint8_t d) 
  * Set the text position reference datum
  * MC_DATUM, TL_DATUM
+ * #define TL_DATUM 0 // Top left (default)
+ * #define TC_DATUM 1 // Top centre
+ * #define TR_DATUM 2 // Top right
+ * #define ML_DATUM 3 // Middle left
+ * #define CL_DATUM 3 // Centre left, same as above
+ * #define MC_DATUM 4 // Middle centre
+ * #define CC_DATUM 4 // Centre centre, same as above
+ * #define MR_DATUM 5 // Middle right
+ * #define CR_DATUM 5 // Centre right, same as above
+ * #define BL_DATUM 6 // Bottom left
+ * #define BC_DATUM 7 // Bottom centre
+ * #define BR_DATUM 8 // Bottom right
  * 
  * drawString(const String& string, int32_t poX, int32_t poY) 
  * drawString(const String& string, int32_t poX, int32_t poY, uint8_t font) 
@@ -200,33 +225,40 @@ void TftTextTest3d(void) {
  * Define padding width (aids erasing old text and numbers)
  */
 void TftTextTest4(void) {
+  Serial.println("#4 - "); 
   tft.setRotation(1);
   tft.setCursor(0, 0, 2);
   tft.setTextSize(1);
   tft.setTextColor(TFT_GREEN);
   tft.fillScreen(TFT_BLACK);
 
-  tft.setTextDatum(MC_DATUM);
-  tft.drawString("Button:", tft.width() / 2, tft.height() / 2 - 32);
-  tft.drawString("[WiFi Scan]", tft.width() / 2, tft.height() / 2 - 16);
-  tft.drawString("RightButton:", tft.width() / 2, tft.height() / 2 );
-  tft.drawString("[Voltage Monitor]", tft.width() / 2, tft.height() / 2 + 16);
   tft.setTextDatum(TL_DATUM);  
+  tft.drawString("Button:", tft.width() / 2, tft.height() / 2 - 32);
+  tft.setTextDatum(MC_DATUM);
+  tft.drawString("[WiFi Scan]", tft.width() / 2, tft.height() / 2 - 16);
+  tft.setTextDatum(TR_DATUM);  
+  tft.drawString("RightButton:", tft.width() / 2, tft.height() / 2 );
+  tft.setTextDatum(CL_DATUM);  
+  tft.drawString("[Voltage Monitor]", tft.width() / 2, tft.height() / 2 + 16);
+  tft.setTextDatum(CC_DATUM);  
   tft.drawString("RightButtonLongPress:", tft.width() / 2, tft.height() / 2 + 32 );
+  tft.setTextDatum(CR_DATUM);  
   tft.drawString("[Deep Sleep]", tft.width() / 2, tft.height() / 2 + 48);
+  waitBtnSxClick(); 
 }
 /**
  * invertDisplay(bool i) 
- * invert the display colours i=1=true invert, i=0=false normal
+ * invert the display colours i=1 invert, i=0 normal
  */
 void TftTextTest5(void) {
+  Serial.println("#5 - invert the display colours"); 
   // Binary inversion of colours
   tft.setRotation(0);
   tft.setCursor(0, 0, 2);
   tft.setTextSize(1);
   tft.fillScreen(TFT_BLACK); 
   
-  tft.invertDisplay(true); 
+  tft.invertDisplay(1); 
   tft.setTextColor(TFT_WHITE, TFT_BLACK);
   tft.println("Invert ON\n");
   tft.println("White text");
@@ -236,12 +268,13 @@ void TftTextTest5(void) {
   tft.println("Green text");
   tft.setTextColor(TFT_BLUE, TFT_BLACK);
   tft.println("Blue text");
+  waitBtnSxClick(); 
 }
 void TftTextTest5a(void) {
   // Binary inversion of colours
   tft.fillScreen(TFT_BLACK); 
   tft.setCursor(0, 0, 2);
-  tft.invertDisplay(false); 
+  tft.invertDisplay(0); 
   tft.setTextColor(TFT_WHITE, TFT_BLACK);
   tft.println("Invert ON\n");
   tft.println("White text");
@@ -251,29 +284,12 @@ void TftTextTest5a(void) {
   tft.println("Green text");
   tft.setTextColor(TFT_BLUE, TFT_BLACK);
   tft.println("Blue text");
+  waitBtnSxClick(); 
 }
-  /** 
-   *  Set the text cursor x,y position
-   *  setCursor(int16_t x, int16_t y)
-   *  Set the text cursor x,y position and font
-   *  setCursor(int16_t x, int16_t y, uint8_t font)
-   *  setTextWrap(bool wrapX, bool wrapY)
-   *  Define if text should wrap at end of line
-   *  setTextDatum(uint8_t d)
-   *  Set the text position reference datum
-   *  setTextPadding(uint16_t x_width)
-   *  Define padding width (aids erasing old text and numbers)
-   *  invertDisplay(bool i)
-   *  invert the display colours i = 1 invert, i = 0 normal
-   *  drawString(const char *string, int32_t poX, int32_t poY)
-   *  drawString(const char *string, int32_t poX, int32_t poY, uint8_t font)
-   *  drawString(const String& string, int32_t poX, int32_t poY)
-   *  drawString(const String& string, int32_t poX, int32_t poY, uint8_t font)
-   *  draw string with padding if it is defined
-   *  Without font number, uses font set by setTextFont()
-   *  setFreeFont(const GFXfont *f)
-   *  Sets the GFX free font to use
-   */
+/** 
+ *  setFreeFont(const GFXfont *f)
+ *  Sets the GFX free font to use
+ */
 
 void setup(void) {
   
@@ -290,17 +306,9 @@ void setup(void) {
 
 void loop() {
 
-  TftTextTest1(); Serial.println("TftTextTest1"); waitBtnSxClick(); 
-  TftTextTest2(); Serial.println("TftTextTest2"); waitBtnSxClick(); 
-  TftTextTest2a(); Serial.println("TftTextTest2"); waitBtnSxClick(); 
-  TftTextTest2b(); Serial.println("TftTextTest2"); waitBtnSxClick(); 
-  TftTextTest2c(); Serial.println("TftTextTest2"); waitBtnSxClick(); 
-  TftTextTest3(); Serial.println("TftTextTest2a"); waitBtnSxClick(); 
-  TftTextTest3a(); Serial.println("TftTextTest2a"); waitBtnSxClick(); 
-  TftTextTest3b(); Serial.println("TftTextTest2a"); waitBtnSxClick(); 
-  TftTextTest3c(); Serial.println("TftTextTest2a"); waitBtnSxClick(); 
-  TftTextTest3d(); Serial.println("TftTextTest2a"); waitBtnSxClick(); 
-  TftTextTest4(); Serial.println("TftTextTest3"); waitBtnSxClick(); 
-  TftTextTest5(); Serial.println("TftTextTest3a"); waitBtnSxClick(); 
-  TftTextTest5a(); Serial.println("TftTextTest7"); waitBtnSxClick(); 
+  TftTextTest1(); 
+  TftTextTest2(); TftTextTest2a(); TftTextTest2b(); TftTextTest2c();
+  TftTextTest3(); TftTextTest3a(); TftTextTest3b(); TftTextTest3c(); TftTextTest3d();
+  TftTextTest4();
+  TftTextTest5(); TftTextTest5a();
 }
