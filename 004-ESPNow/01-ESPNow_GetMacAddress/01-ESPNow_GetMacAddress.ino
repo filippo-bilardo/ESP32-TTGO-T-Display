@@ -1,5 +1,5 @@
 /** ****************************************************************************************
- * \mainpage ESP32-T-Display/004-ESPNow_GetMacAddress.ino
+ * \mainpage ESP32-T-Display/01-ESPNow_GetMacAddress.ino
  *
  * @brief Recupero dell'indirizzo macaddress della scheda ESP32-T-Display
  * 
