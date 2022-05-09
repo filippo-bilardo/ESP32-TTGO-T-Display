@@ -4,6 +4,7 @@
  * @brief Recupero dell'indirizzo macaddress della scheda ESP32-T-Display
  * 
  * https://github.com/filippo-bilardo/ESP32-TTGO-T-Display
+ * https://randomnerdtutorials.com/get-change-esp32-esp8266-mac-address-arduino/
  * 
  * @author Filippo Bilardo
  * @version 1.0  09/05/22  Versione iniziale
