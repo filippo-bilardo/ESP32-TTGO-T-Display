@@ -1,5 +1,5 @@
 /** ****************************************************************************************
- * \mainpage ESP32-T-Display/02-ESPNow_Broadcast_MasterSlave.ino
+ * \mainpage ESP32-T-Display/02-ESPNow_Broadcast.ino
  *
  * @brief Esempio di trasmissione broadcast
  * ogni scheda può trasmettere e ricevere
@@ -14,7 +14,7 @@
 #include "MyBtn.h"
 #include "MyTft.h"
 #include "L1_EspNow.h"
-#include "EspNow_MasterSlave.h"
+#include "ESPNow_Broadcast.h"
 
 extern TFT_eSPI tft;
 
@@ -38,7 +38,7 @@ void setup(void)
   WiFi.mode(WIFI_STA);
   Serial.println(WiFi.macAddress());
   tft.println(WiFi.macAddress());
-  WiFi.disconnect(); // Disconnect from WiFi
+  WiFi.disconnect(); //Non è necessario rimanere connessi
  
   //Inizializzazione pulsanti
   btnInit();
@@ -46,7 +46,7 @@ void setup(void)
   //Inizializzazione protocollo fisico EspNow 
   L1_EspNowInit();
   //Inizializzazione della demo
-  EspNowMasterSlaveInit();
+  EspNowBroadcastInit();
 }
 
 void loop()
