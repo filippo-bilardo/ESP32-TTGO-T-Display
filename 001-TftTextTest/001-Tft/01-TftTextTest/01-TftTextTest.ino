@@ -1,5 +1,5 @@
 /** ****************************************************************************************
- * \mainpage ESP32-T-Display/001-TftTextTest.ino
+ * \mainpage ESP32-T-Display/01-TftTextTest.ino
  *
  * @brief Test delle funzionalita per la scritture testo della libreria TFT_eSPI
  * 
